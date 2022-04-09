@@ -6,9 +6,6 @@ const UserController = require("../controllers/user-controller")
 const User = require("../models/User");
 const multer = require('../multer-config')
 
-
-
-
 router.get("/all", UserController.getAll)
 router.post("/get-by-token", UserController.getUserByToken)
 

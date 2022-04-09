@@ -17,8 +17,9 @@ app.use('/img', express.static('uploads/images'));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-
-
+app.use("/api/voiture", require("./routes/voiture-route"))
+app.use("/api/assurance", require("./routes/assurance-route"))
+app.use("/api/constat", require("./routes/constat-route"))
 app.use("/api/user", require("./routes/user-route"))
 app.use('/upload', express.static(path.join(__dirname, 'upload')))
 

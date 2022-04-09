@@ -25,8 +25,8 @@ exports.add = async (req, res) => {
 
   } = req.body; 
 
-  if (await User.findOne({ email })) {
-    res.status(403).send({ message: "User existe deja !" });
+  if (await Assurance.findOne({ name })) {
+    res.status(403).send({ message: "assurance existe deja !" });
   } else {
     const nouveauassurance = new Assurance();
 

@@ -29,15 +29,15 @@ const ConstaSchema = new mongoose.Schema(
 
     photo: {
         type: String,
-        required: true
+        required: false
     },
     assurance1: {
         type: String,
-        required: true
+        required: false
     },
     assurance2: {
         type: String,
-        required: true
+        required: false
     },
     
   }, 

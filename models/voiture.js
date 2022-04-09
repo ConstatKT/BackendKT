@@ -12,10 +12,10 @@ const mongoose = require("mongoose");
          },
 
 
-         users:[{
+         user:{
             type: String,
             required: true
-            }],
+            },
 
          assurance:{
              type: String,

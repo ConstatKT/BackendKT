@@ -31,28 +31,29 @@ exports.add = async (req, res) => {
   
     } = req.body;
   
-    if (await User.findOne({ cin:cin_user1 })) {
+    if (await User.findOne({ cin:cin_user1 })) {console.log("11")
       
     } else {
         res.status(403).send({ message: "User n existe pas !" });
     }
     if (await User.findOne({ cin:cin_user2 })) {
-      
+        console.log("22")
     } else {
         res.status(403).send({ message: "User n existe pas !" });
     }
-    if (await voiture.findOne({ serie:vt1 })) {
+    if (await voiture.findOne({ serie:vt1 })) {console.log("33")
       
     } else {
         res.status(403).send({ message: "voiture n existe pas !" });
     }
-    if (await voiture.findOne({ serie:vt2 })) {
+    if (await voiture.findOne({ serie:vt2 })) {console.log("44")
       
     } else {
         res.status(403).send({ message: "voiture n existe pas !" });
     }
   const  v1= await voiture.findOne({ serie:vt1 })
   const  v2= await voiture.findOne({ serie:vt2 })
+  console.log("55")
     const nouveauconstat = new Constat();
 
     nouveauconstat.X = X;
@@ -74,10 +75,10 @@ exports.add = async (req, res) => {
    }
 
     
-        nouveauassurance.save();
+   nouveauconstat.save();
         res.status(201).send({
           message: "success",
-         assurance: nouveauassurance,
+         assurance: nouveauconstat,
         });
 
 

@@ -2,7 +2,7 @@ const express = require("express")
 const app = express()
 
 const mongoose = require("mongoose")
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 const config = require("./config.json")
 const bodyParser = require("body-parser")
 const path = require("path");
@@ -23,7 +23,7 @@ app.use("/api/constat", require("./routes/constat-route"))
 app.use("/api/user", require("./routes/user-route"))
 app.use('/upload', express.static(path.join(__dirname, 'upload')))
 
-
+app.use("/user", require("./routes/user"))
 mongoose.Promise = global.Promise
 mongoose.connect("mongodb://127.0.0.1:27017/constat")
   .then(

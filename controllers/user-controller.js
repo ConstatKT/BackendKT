@@ -97,7 +97,7 @@ exports.login = async (req, res) => {
 
     if (user.isVerified) {
       console.log("1111111")
-      res.status(200).send({ token, message: "Success" });
+      res.status(200).send({ token,user:user, message: "Success" });
       
     } else {
       res.status(200).send({ user, message: "Email not verified" });

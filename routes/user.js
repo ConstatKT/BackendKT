@@ -1,18 +1,18 @@
-require("dotenv").config()
+//require("dotenv").config()
 
 const express = require('express')
 const router = express.Router()
-const User = require('../models/user')
+const User = require('../models/User1')
 const Bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const multer = require('../middleware/multer-config')
-const cloudinary = require("../middleware/cloudinary")
+const multer = require('../multer-config')
+//const cloudinary = require("../middleware/cloudinary")
 const nodemailer = require("nodemailer");
-const Token = require('../models/Token');
+//const Token = require('../models/Token');
 const crypto = require('crypto');
-const Article = require('../models/article')
-const bcryptjs = require('bcryptjs')
-const article = require('../models/article')
+//const Article = require('../models/article')
+const bcryptjs = require('bcrypt')
+
 
 
 
@@ -316,8 +316,8 @@ router.patch('/:id', getUserById, multer, async (req, res) => {
      }*/
 
     if (req.file.filename != null) {
-        const photoCloudinary = await cloudinary.uploader.upload(req.file.path)
-        res.user.photoProfil = photoCloudinary.url
+        res.user.photoProfil = `${req.protocol}://${req.get('host')}/upload/${req.file.filename}`
+        
     }
 
 

@@ -1,56 +1,43 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 
- const UserSchema = new mongoose.Schema(
-  {
-      username: {
-      type: String,
-      required: true
-     },
+const userSchema = new mongoose.Schema({
+    nom: {
+        type: String
+    },
+    prenom: {
+        type: String
+    },
+    email: {
+        unique: true,
+        required:true,
+        type: String,
+        match: /.+\@.+\..+/
+        
+    },
+    password: {
+        type: String
+    },
+    numt:{
+        required:false,
+        maxlength: 12,
+        type: String
+    },
+    photoProfil:{
+        type: String,
+        required: false
+    },
+    isVerified: {
+        type: Boolean, default: false
+    }/*,
+    ratings:{
+        type: mongoose.Mixed, 
+        1: Number, 
+        2: Number,
+        3: Number,
+        4: Number,
+        5: Number,
+    default: {1:1, 2:1, 3:1, 4:1, 5:1}}*/
+    
+})
 
-
-    email:{
-      type: String,
-      required: true
-     },
-      tel:{
-         type: String,
-        required: true
-         },
-        cin:{
-            type: String,
-            required: true
-         },
-         adresse:{
-             type: String,
-             required: true
-            },
-            categorie_permis :{
-              type: String,
-              required: false
-             },
-             date_permis :{
-              type: String,
-              required: false
-             },
-       role:{      //y5dm fl assuranse wala 3andou karhba  
-         type: String,
-          required: true
-        },
-
-         password:{
-           type: String,
-           required: true
-          },
-   photoProfil: {
-      type: String,
-     // default: "http://localhost:3000/upload/default-profile.png",
-      required: false
-   },
-    isVerified: { type: Boolean },
-   
-  },
-  {
-    timestamps: { currentTime: () => Date.now() },
-  }
-);
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model('user',userSchema)

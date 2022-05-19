@@ -8,7 +8,6 @@ const bodyParser = require("body-parser")
 const path = require("path");
 const morgan = require("morgan")
 
-
 app.use(morgan('combined'))
 
 
@@ -17,15 +16,15 @@ app.use('/img', express.static('uploads/images'));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use("/api/voiture", require("./routes/voiture-route"))
+app.use("/voiture", require("./routes/voiture-route"))
 app.use("/api/assurance", require("./routes/assurance-route"))
 app.use("/api/constat", require("./routes/constat-route"))
-app.use("/api/user", require("./routes/user-route"))
+app.use("/api/test", require("./routes/user-route"))
+app.use("/user", require("./routes/user"))
 app.use('/upload', express.static(path.join(__dirname, 'upload')))
 
-app.use("/user", require("./routes/user"))
 mongoose.Promise = global.Promise
-mongoose.connect("mongodb://127.0.0.1:27017/constat")
+mongoose.connect("mongodb://127.0.0.1:27017/costat")
   .then(
     () => {
       console.log("Connecté a la base de données")

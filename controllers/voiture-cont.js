@@ -9,9 +9,11 @@ const fs = require("fs");
 
 exports.getAll = async (req, res) => {
  // console.log("1111")
-  res.status(200).send({ voiture: await Voiture.find(), message: "success" });
+ const voiture = await Voiture.find()
+  res.status(200).send(voiture );
 };
 
+//creating one
 
 exports.add = async (req, res) => {
   

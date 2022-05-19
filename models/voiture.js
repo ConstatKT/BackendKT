@@ -22,7 +22,10 @@ const mongoose = require("mongoose");
              required: true
             },
         
-         
+            photoProfil:{
+               type: String,
+               required: false
+           },
    
            },
               {
